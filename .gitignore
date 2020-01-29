@@ -5,6 +5,8 @@ opencv_frame_0.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+GUI Version/__pycache__/
+CLI Version/__pycache__/
 *.py[cod]
 *$py.class
 
