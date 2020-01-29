@@ -207,6 +207,7 @@ def getObjectsFromCamera(url=''):
         #         # ESC pressed
         #         print("Escape hit, closing...")
         #         break
+        showExit(winName, frame)
 
         img_name = "opencv_frame_{}.png".format(img_counter)
         cv2.imwrite(img_name, frame)
@@ -236,9 +237,12 @@ def getObjectsFromImage(imgPath):
 
     postprocess (frame, outs)
 
+    showExit(winName, frame)
+
     #show the image
     # cv2.imshow(winName, frame)
     # sleep(15)
+    
     cv2.destroyAllWindows()
 
 def getObjectFromVideo(videoPath):
@@ -311,6 +315,16 @@ def getObjectsNames():
                 counter[detected] = 1
             break
     return counter
+
+def showExit(winName, frame):
+    while True:
+        #show the image
+        cv2.imshow(winName, frame)
+        k = cv2.waitKey(1)
+        if k%256 == 27:
+            # ESC pressed
+            print("Escape hit, closing...")
+            break
 
 # getVideoFromCamera()
 # getObjectsFromCamera()
